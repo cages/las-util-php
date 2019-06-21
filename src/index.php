@@ -41,19 +41,17 @@
             $host = $_SERVER['HTTP_HOST'];
             // Route it up!
             switch ($request_uri[0]) {
-                  // Upload page
                 case '/upload':
-                      require 'upload.php';
+                    require 'upload.php';
                     break;
-                  // About page
                 case '/about':
-                      require 'about.php';
+                    require 'about.php';
                     break;
                 case '/receive':
-                      require 'receive-file.php';
+                    require 'receive-file.php';
                     break;
                 case '/display':
-                      require 'display.php';
+                    require 'display.php';
                     break;
             }
             ?>
