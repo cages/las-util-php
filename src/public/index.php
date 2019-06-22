@@ -30,13 +30,13 @@ require_once dirname(__DIR__).'/config/config.php';
 <div class="container" style="margin-top:30px">
 <!-- Header Section -->
 <header class="jumbotron text-center row" style="margin-bottom:2px; background:pale; padding:20px;">
-    <?php include('views/header-for-template.php'); ?>
+    <?php include('templates/header-for-template.php'); ?>
 </header>
 
 <!-- Body Section -->
     <div class="row" style="padding-left: 0px">
         <!-- Left-side column Menu Section -->
-        <?php include('views/nav.php'); ?>
+        <?php include('templates/nav.php'); ?>
 
         <!-- Center Column Content Section -->
         <div class="col-sm-8">
@@ -48,7 +48,7 @@ require_once dirname(__DIR__).'/config/config.php';
             // Route it up!
             switch ($request_uri[0]) {
                 case '/upload':
-                    require 'src/upload.php';
+                    require 'templates/upload.php';
                     break;
                 case '/about':
                     require 'src/about.php';
@@ -65,11 +65,11 @@ require_once dirname(__DIR__).'/config/config.php';
         
         <!-- Right-side Column Content Section -->
         <aside class="col-sm-2">
-            <?php include('views/info-col.php'); ?>
+            <?php include('templates/info-col.php'); ?>
         </aside>
     </div>
     <footer class="jumbotron text-center row" style="padding-bottom:1px; padding-top:8px;">
-        <?php include('views/footer.php'); ?>
+        <?php include('templates/footer.php'); ?>
     </footer>
 </div>
 </body>

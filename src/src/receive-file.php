@@ -11,17 +11,6 @@
 
 $upload_dir = "uploads";
 
-/*
- * Array (
- * [name] => version.las
- * [type] => application/octet-stream
- * [tmp_name] => /private/var/folders/wg/0nrwp1vx2xs33kcghzhbdw6c0000gp/T/phpXWUP34
- * [error] => 0
- * [size] => 672 )
- * Warning: Invalid argument supplied for foreach() in
- * /usr/local/devel/ProgLangs/php-lang/my-projects/parsers/parser-las-php/src/processfile.php
- * on line 5
- */
 
 // Debugging
 // print_r($_FILES["fileToUpload"]);
