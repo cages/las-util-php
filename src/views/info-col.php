@@ -3,7 +3,7 @@
  * Main index page info column
  *
  * @category
- * @package   Las-Php
+ * @package   Las-Util-Php
  * @author    DC Slagel <dcs@mailworks.org>
  * @copyright 2019 DC Slagel
  * @license   MIT

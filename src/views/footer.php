@@ -1,12 +1,12 @@
 <?php
 /**
- * Main index page footer
+ * Page footer for the site
  *
  * @category
- * @package   Las-Php
+ * @package   Las-Util-Php
  * @author    DC Slagel <dcs@mailworks.org>
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
 ?>
-<p class="h6 col-sm-12">Copyright &copy DC Slagel 2019</p>
+<p class="h8 col-sm-12">Copyright &copy DC Slagel 2019</p>
