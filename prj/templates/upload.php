@@ -1,6 +1,6 @@
 <?php
 /**
- * Receive uploaded file receive-file.php
+ * Receive uploaded file
  *
  * @category
  * @package   Las-Util-Php
@@ -18,6 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS File -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <script type="text/javascript" src="verify-file.js"></script>
 </head>
 
 <body>
@@ -68,7 +69,6 @@
         <?php include('templates/footer.php'); ?>
     </footer>
 </div>
-<script src="verify-file.js"></script>
 </body>
 </html>
 

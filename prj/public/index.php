@@ -8,7 +8,7 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
-
+// TODO: change index.php to require ../route.php
 /**
  * Change to the project root so that all pathing is relative to it.
  */
@@ -27,6 +27,12 @@ switch ($request_uri[0]) {
         break;
     case '/upload':
         require 'templates/upload.php';
+        break;
+    case '/uploadsuccess':
+        require 'templates/upload-success.php';
+        break;
+    case '/uploadretry':
+        require 'templates/upload-retry.php';
         break;
     case '/about':
         require 'src/about.php';

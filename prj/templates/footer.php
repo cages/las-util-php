@@ -9,4 +9,4 @@
  * @license   MIT
  */
 ?>
-<p class="h8 col-sm-12">Copyright &copy DC Slagel 2019</p>
+<p class="h6 col-sm-12">Copyright &copy DC Slagel 2019</p>
