@@ -24,13 +24,13 @@
 <div class="container" style="margin-top:30px">
 <!-- Header Section -->
 <header class="jumbotron text-center row" style="margin-bottom:2px; background:pale; padding:20px;">
-    <?php include('templates/header-for-template.php'); ?>
+    <?php include('header-for-template.php'); ?>
 </header>
 
 <!-- Body Section -->
     <div class="row" style="padding-left: 0px">
         <!-- Left-side column Menu Section -->
-        <?php include('templates/nav.php'); ?>
+        <?php include('nav.php'); ?>
 
         <!-- Center Column Content Section -->
         <div class="col-sm-8">
@@ -39,11 +39,11 @@
         
         <!-- Right-side Column Content Section -->
         <aside class="col-sm-2">
-            <?php include('templates/info-col.php'); ?>
+            <?php include('info-col.php'); ?>
         </aside>
     </div>
     <footer class="jumbotron text-center row" style="padding-bottom:1px; padding-top:8px;">
-        <?php include('templates/footer.php'); ?>
+        <?php include('footer.php'); ?>
     </footer>
 </div>
 </body>

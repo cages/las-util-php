@@ -42,6 +42,7 @@
         ?>
         <div class="col-sm-8">
             <h2 class="h2 test-center">Upload Las File</h2>
+            <p>Upload suceeded.</p>
             <form action="upload" method="post" enctype="multipart/form-data" onSubmit="return verified()">
             <div class="form-group row">
                 <label for="fileToUpload" class="col-sm-4 col-form-label">Log Ascii Standard file to upload</label>
