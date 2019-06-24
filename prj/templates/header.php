@@ -1,18 +1,16 @@
-<!DOCTYPE html>
- 
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Simple Site</title>
-</head>
- 
-<body>
-<div id="header">
-    <h1>Simple Site</h1>
-    <ul class="nav global">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Articles</a></li>
-        <li><a href="#">Portfolio</a></li>
-    </ul>
- 
-</div>
+<?php
+/**
+ * Page header for the site
+ *
+ * @category
+ * @package   Las-Util-Php
+ * @author    DC Slagel <dcs@mailworks.org>
+ * @copyright 2019 DC Slagel
+ * @license   MIT
+ */
+?>
+<header class="jumbotron text-center row" style="margin-bottom:2px; background:pale; padding:0px;">
+    <div class="col-sm-14">
+        <h1 class="font-bold">Log Ascii Standard Util</h1>
+    </div>
+</header>

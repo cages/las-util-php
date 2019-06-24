@@ -9,4 +9,6 @@
  * @license   MIT
  */
 ?>
-<p class="h6 col-sm-12">Copyright &copy; DC Slagel 2019</p>
+<footer class="jumbotron text-center row" style="padding-bottom:0px; padding-top:0px;">
+    <p class="h6 col-sm-12">Copyright &copy; DC Slagel 2019</p>
+</footer>

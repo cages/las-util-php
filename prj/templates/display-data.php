@@ -23,28 +23,30 @@
 <body>
 <div class="container" style="margin-top:30px">
 <!-- Header Section -->
-<header class="jumbotron text-center row" style="margin-bottom:2px; background:pale; padding:20px;">
-    <?php include('header-for-template.php'); ?>
-</header>
+    <?php include('header.php'); ?>
 
 <!-- Body Section -->
     <div class="row" style="padding-left: 0px">
         <!-- Left-side column Menu Section -->
-        <?php include('nav.php'); ?>
+        <div class="col-sm-2">
+            <?php include('nav.php'); ?>
+        </div>
 
         <!-- Center Column Content Section -->
-        <div class="col-sm-8">
+        <!-- <div class="col-sm-8"> -->
+        <div class="col-sm-10">
             <p>TODO: add feature to display data</p>
         </div>
         
         <!-- Right-side Column Content Section -->
+        <!--
         <aside class="col-sm-2">
             <?php include('info-col.php'); ?>
         </aside>
+        -->
     </div>
-    <footer class="jumbotron text-center row" style="padding-bottom:1px; padding-top:8px;">
-        <?php include('footer.php'); ?>
-    </footer>
+<!-- Footer Section -->
+    <?php include('footer.php'); ?>
 </div>
 </body>
 </html>
