@@ -13,6 +13,7 @@
 // print_r($_FILES["fileToUpload"]);
 
 // TODO: Check if there is a file, break if there isn't redirect with error msg
+
 if ($_FILES['fileToUpload']['size'] <= 0) {
     header('location: /');
 }
@@ -48,9 +49,11 @@ if (file_exists(UPLOAD_DIR . "/$name")) {
 } else {
     $res = move_uploaded_file($tmp_name, "$from_path");
 
-    if ($res) {
-        header('location: /uploadsuccess');
-    } else {
+    if (! $res) {
         header('location: /uploadretry');
     }
+    // TODO: pass file to parser-func
+    // TODO: save file in db
 }
+
+
