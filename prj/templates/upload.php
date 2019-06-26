@@ -8,6 +8,8 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
+
+require('is_file_to_upload.php');
 ?>
 
 <!doctype html>
@@ -47,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="hidden" name="MAX_FILE_SIZE" value="16000000">
                     <input type="file" class=form-control" name="fileToUpload" id="fileToUpload"
                     placeholder="File Name" maxlength="50"
-                    required value="<?php if (isset($POST['fileToUpload'])) echo $_POST['fileToUpload']; ?>"/>
+                    required value="<?php is_file_to_upload() ?>"/>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12">

@@ -9,15 +9,15 @@ License-Identifier: MIT
 */
 
 
-// Example:
+// Init data struct:
 function las_db_init($file, $flags)
 {
     $las_db = array(
-    'dbConn' => null,
-    'log_id' => null,
-    'stdin' => null,
-    'flags' => null,
-    'db' => 'database/las.db'
+        'dbConn' => null,
+        'log_id' => null,
+        'stdin'  => null,
+        'flags'  => null,
+        'db'     => dirname(__DIR__) . '/database/las.db'
     );
 
     // Save optional flags
@@ -27,7 +27,16 @@ function las_db_init($file, $flags)
     $las_db['log_id'] = hash_file('sha256', $file);
 
     // Open file handle
-    $las_db['stdin'] = fopen("$file", 'r');
+    // TODO: add error checking and fallback.
+    if (file_exists("$file")) {
+        // Open file
+        $las_db['stdin'] = fopen("$file", 'r');
+        // Create file specific id
+        $las_db['log_id'] = hash_file('sha256', $file);
+    } else {
+        echo "FILE: [" . $file . "doesn't exist<br>";
+    }
+
 
     return $las_db;
 }
@@ -37,14 +46,11 @@ function las_check_for_db($las_db)
 {
     // open database connection
     if (file_exists($las_db['db'])) {
-        $fail_msg = "Unable to open database: " . $las_db['db'] . "\n";
-        // Connect to database
-        $las_db['dbConn'] = new SQLite3($las_db['db'])
-            or die($fail_msg);
+        $las_db['dbConn'] = new SQLite3($las_db['db']);
     } else {
         // Create database
         $las_db['dbConn'] = new SQLite3($las_db['db'], SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE)
-            or die($fail_msg);
+            or die($las_db['dbConn']->lastErrorMsg());
 
 
         // Create 'version' table
@@ -61,18 +67,44 @@ EOD;
 
         $las_db['dbConn']->exec($create_string) or die("Create table failed");
     }
+
+    if (!$las_db['dbConn']) {
+        echo $las_db['dbConn']->lastErrorMsg();
+    } else {
+        echo "Opened database successfully\n";
+    }
+
     return $las_db;
 }
 
 
 function las_process_records($las_db)
 {
-    $flags = $las_db['flags'];
-    $db_handle = $las_db['dbConn'];
-    $stdin = $las_db['stdin'];
+    $flags        = $las_db['flags'];
+    $db_handle    = $las_db['dbConn'];
+    $stdin        = $las_db['stdin'];
+    $field_log_id = $las_db['log_id'];
+
+    $curr_las_header = null;
+
+    /*
+    // $tq = $db_handle->query("SELECT name FROM sqlite_master WHERE type='table';");
+    $tq = $db_handle->query("SELECT name from sqlite_master;");
+
+    while ($row = $tq->fetchArray(1)) {
+        print_r($row);
+        echo '<br>';
+    }
+    exit();
+    */
 
     while (($line = fgets($stdin)) !== false) {
         $line = trim($line);
+        if ($line[0] === '~') {
+            $curr_las_header = $line;
+            continue;
+        }
+
 
         /** Version section delimiters
          *
@@ -95,18 +127,17 @@ function las_process_records($las_db)
         list(, $field_value, $field_note) = array_map("trim", $matches);
 
         $field_name = SQLite3::escapeString($field_name);
-        $field_name = SQLite3::escapeString($field_name);
-        $field_name = SQLite3::escapeString($field_name);
-        $field_name = SQLite3::escapeString($field_name);
-        $field_name = SQLite3::escapeString($field_name);
+        $field_unit = SQLite3::escapeString($field_unit);
+        $field_value = SQLite3::escapeString($field_value);
+        $field_note = SQLite3::escapeString($field_note);
 
         if (array_key_exists('d', $flags)) {
-            print "Field_Name: [$field_name]\n";
-            print "Field_Unit: [$field_unit]\n";
-            print "Field_Value: [$field_value]\n";
-            print "Field_Note: [$field_note]\n";
-            print "Field_Sha: [$log_id]\n";
-            print "\n#---------------------------#\n";
+            echo "Field_Name  : [$field_name]<br>";
+            echo "Field_Unit  : [$field_unit]<br>";
+            echo "Field_Value : [$field_value]<br>";
+            echo "Field_Note  : [$field_note]<br>";
+            echo "Field_Sha   : [$field_log_id]<br>";
+            echo "<br>#---------------------------#<br>";
         }
         // Insert data into row/tuple
         $statement = $db_handle->prepare(

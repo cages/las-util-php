@@ -9,51 +9,27 @@
  * @license   MIT
  */
 
-// Debugging
-// print_r($_FILES["fileToUpload"]);
-
-// TODO: Check if there is a file, break if there isn't redirect with error msg
-
-if ($_FILES['fileToUpload']['size'] <= 0) {
-    header('location: /');
-}
-
-// Check for upload errors.
-switch ($_FILES['fileToUpload']['error']) {
-    case UPLOAD_ERR_OK:
-        break;
-    case UPLOAD_ERR_NO_FILE:
-        throw new RuntimeException('No file sent.');
-    case UPLOAD_ERR_INI_SIZE:
-    case UPLOAD_ERR_FORM_SIZE:
-        throw new RuntimeException('Exceeded filesize limit.');
-    default:
-        throw new RuntimeException('Unknown errors.');
-}
+require 'las_db.php';
+require 'upload_util.php';
 
 
-// Move upload file from tmp location to projects upload dir.
-$tmp_name = $_FILES["fileToUpload"]["tmp_name"];
+/*
+ * ----------------------------------------------
+ * Upload processes
+ * ----------------------------------------------
+ */
+$uu_data = uu_init_process();
+$uu_data = uu_get_file_loc($uu_data);
 
-// TODO: Clean file name
+/*
+ * ----------------------------------------------
+ * DB processes
+ * ----------------------------------------------
+ */
 
-
-// Debugging
-// print("<br>TMP-NAME: [" . $tmp_name . "]<br>");
-//
-$name = basename($_FILES["fileToUpload"]["name"]);
-$from_path = UPLOAD_DIR . "/$name";
-
-if (file_exists(UPLOAD_DIR . "/$name")) {
-    echo "<p>$name already exists.<p>";
-} else {
-    $res = move_uploaded_file($tmp_name, "$from_path");
-
-    if (! $res) {
-        header('location: /uploadretry');
-    }
-    // TODO: pass file to parser-func
-    // TODO: save file in db
-}
+// $flags = array('d' => true);
+$las_db = las_db_init($uu_data['file_to_process'], $flags);
 
 
+$las_db = las_check_for_db($las_db);
+las_process_records($las_db);
