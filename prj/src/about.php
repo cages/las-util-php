@@ -9,4 +9,6 @@
  * @license   MIT
  */
 ?>
+declare(strict_types = 1);
+
 <p>LAS Util - LAS Web tools in php</p>

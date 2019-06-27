@@ -8,12 +8,13 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
+declare(strict_types = 1);
 
 // Debugging
 // print_r($_FILES["fileToUpload"]);
 
 // Init data struct:
-function uu_init_process()
+function uu_init_process() :array
 {
     uu_check_file();
 
@@ -49,7 +50,7 @@ function uu_check_file()
     }
 }
 
-function uu_get_file_loc($uu_data)
+function uu_get_file_loc(array $uu_data) : array
 {
     // Move upload file from tmp location to projects upload dir.
     
@@ -67,8 +68,9 @@ function uu_get_file_loc($uu_data)
     $to_path = $uu_data['upload_dir'] . "/$name";
 
     if (file_exists($to_path)) {
+        // TODO: pass this message to next view
         echo "<p>$name already exists.<p>";
-        return "";
+        return $uu_data;
     } else {
         $res = move_uploaded_file("$tmp_name", "$to_path");
 

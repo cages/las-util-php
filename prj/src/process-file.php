@@ -8,9 +8,10 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
+declare(strict_types = 1);
 
-require 'las_db.php';
-require 'upload_util.php';
+require '../src/las_db.php';
+require '../src/upload_util.php';
 
 
 /*
@@ -28,8 +29,10 @@ $uu_data = uu_get_file_loc($uu_data);
  */
 
 // $flags = array('d' => true);
-$las_db = las_db_init($uu_data['file_to_process'], $flags);
 
+if (isset($uu_data['file_to_process']) && file_exists($uu_data['file_to_process'])) {
+    $las_db = las_db_init($uu_data['file_to_process'], $flags);
 
-$las_db = las_check_for_db($las_db);
-las_process_records($las_db);
+    $las_db = las_check_for_db($las_db);
+    las_process_records($las_db);
+}

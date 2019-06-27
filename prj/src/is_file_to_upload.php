@@ -8,6 +8,7 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
+declare(strict_types = 1);
 
 function is_file_to_upload()
 {
@@ -15,4 +16,3 @@ function is_file_to_upload()
         echo $_POST['fileToUpload'];
     }
 }
-?>

@@ -1,12 +1,14 @@
 <?php
-/*
-File-Name: Db.php
-File-Desc: parsing functions for las files
-App-Name: Las-Util-Php
-Project-Name: Las-Util-Php
-Copyright: Copyright (c) 2019, DC Slagel
-License-Identifier: MIT
-*/
+/**
+ * LAS Database functions
+ *
+ * @category
+ * @package   Las-Util-Php
+ * @author    DC Slagel <dcs@mailworks.org>
+ * @copyright 2019 DC Slagel
+ * @license   MIT
+ */
+declare(strict_types = 1);
 
 
 // Init data struct:

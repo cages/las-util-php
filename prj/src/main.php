@@ -8,17 +8,18 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
+declare(strict_types = 1);
 
 /**
  * Change to the project root so that all pathing is relative to it.
  */
-require_once 'config/config.php';
+require_once '../config/config.php';
 
 $routes = array(
-    '/'        => 'templates/home.php',
-    '/about'   => 'src/about.php',
-    '/upload'  => 'templates/upload.php',
-    '/display' => 'templates/display-data.php',
+    '/'        => '../templates/home.php',
+    '/about'   => '../src/about.php',
+    '/upload'  => '../templates/upload.php',
+    '/display' => '../templates/display-data.php',
 );
 
 // Grabs the URI and breaks in apart in case we have querystring stuff
@@ -30,23 +31,6 @@ $host = $_SERVER['HTTP_HOST'];
 if (array_key_exists($request_uri[0], $routes)) {
     require $routes[$request_uri[0]];
 } else {
-    // Home
+    // Default route : Home
     require 'templates/home.php';
 }
-# switch ($request_uri[0]) {
-#     case '/':
-#         require 'templates/home.php';
-#         break;
-#     case '/upload':
-#         require 'templates/upload.php';
-#         break;
-#     case '/about':
-#         require 'src/about.php';
-#         break;
-#     case '/display':
-#         require 'templates/display-data.php';
-#         break;
-#     default:
-#         require 'templates/home.php';
-#         break;
-# }

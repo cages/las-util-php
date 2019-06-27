@@ -10,6 +10,7 @@ SYNOPSIS
 git clone https://github.com/cages/las-util-php
 cd las-util-php/src
 mkdir uploads
+mkdir database
 make startserver
 ```
 
@@ -23,13 +24,18 @@ A message will report whether the file was uploaded or is already there.
 
 DESCRIPTION
 -----------
-Caution: This is very beta software!
+Caution: This is very beta exporatory demo software!
 
-LAS-Util currently only uploads a las file:
+This is a php project without a framework.
+
+LAS-Util current functionality:
+- uploads a las header file
+- parses the file
+- store it in a database
 
 Future versions will implement:
-- parsing the file
-- storing the parsed file in a database
+- display the file data 
+- implement unit testing
 
 DEPENDENCIES
 ------------

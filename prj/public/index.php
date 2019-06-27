@@ -8,5 +8,6 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
-// TODO: change index.php to require ../route.php
-require_once dirname(__DIR__).'/route.php';
+declare(strict_types = 1);
+
+require_once dirname(__DIR__).'/src/main.php';
