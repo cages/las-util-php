@@ -8,9 +8,10 @@ SYNOPSIS
  ```bash
 # Setup:
 git clone https://github.com/cages/las-util-php
-cd las-util-php/src
-mkdir uploads
-mkdir database
+cd las-util-php/prj
+# Make uploads and database directories
+make init
+# start development web server
 make startserver
 ```
 
