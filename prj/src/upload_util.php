@@ -10,8 +10,29 @@
  */
 declare(strict_types = 1);
 
+
 // Debugging
 // print_r($_FILES["fileToUpload"]);
+
+// Upload and process wrapper function
+function uu_upload_and_process_file()
+{
+    require '../src/las_db.php';
+
+    // Upload processes
+    $uu_data = uu_init_process();
+    $uu_data = uu_get_file_loc($uu_data);
+
+    // DB processes
+    // $flags = array('d' => true);
+    if (isset($uu_data['file_to_process']) && file_exists($uu_data['file_to_process'])) {
+        $las_db = las_db_init($uu_data['file_to_process'], $flags);
+
+        $las_db = las_check_for_db($las_db);
+        las_process_records($las_db);
+    }
+}
+
 
 // Init data struct:
 function uu_init_process() :array
@@ -25,8 +46,6 @@ function uu_init_process() :array
     return $uu_data;
 }
 
-// TODO: pass file to parser-func
-// TODO: save file in db
 
 function uu_check_file()
 {
@@ -49,6 +68,7 @@ function uu_check_file()
             throw new RuntimeException('Unknown errors.');
     }
 }
+
 
 function uu_get_file_loc(array $uu_data) : array
 {

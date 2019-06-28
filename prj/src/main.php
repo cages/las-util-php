@@ -10,27 +10,27 @@
  */
 declare(strict_types = 1);
 
-/**
- * Change to the project root so that all pathing is relative to it.
- */
-require_once '../config/config.php';
 
-$routes = array(
-    '/'        => '../templates/home.php',
-    '/about'   => '../src/about.php',
-    '/upload'  => '../templates/upload.php',
-    '/display' => '../templates/display-data.php',
-);
+function main()
+{
+    require_once '../config/config.php';
 
-// Grabs the URI and breaks in apart in case we have querystring stuff
-$request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
+    $routes = array(
+        '/'        => '../templates/home.php',
+        '/about'   => '../templates/about.php',
+        '/upload'  => '../templates/upload.php',
+        '/display' => '../templates/display-data.php',
+    );
 
-$host = $_SERVER['HTTP_HOST'];
+    // Grabs the URI and breaks in apart in case we have querystring stuff
+    $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
-// Route it up!
-if (array_key_exists($request_uri[0], $routes)) {
-    require $routes[$request_uri[0]];
-} else {
-    // Default route : Home
-    require 'templates/home.php';
+
+    // Route it up!
+    if (array_key_exists($request_uri[0], $routes)) {
+        require $routes[$request_uri[0]];
+    } else {
+        // Default route : Home
+        require '../templates/home.php';
+    }
 }

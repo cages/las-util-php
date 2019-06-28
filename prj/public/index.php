@@ -10,4 +10,8 @@
  */
 declare(strict_types = 1);
 
+// Load Main
 require_once dirname(__DIR__).'/src/main.php';
+
+// Run Main
+main();
