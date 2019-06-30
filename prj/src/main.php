@@ -31,6 +31,6 @@ function main()
         require $routes[$request_uri[0]];
     } else {
         // Default route : Home
-        require '../templates/home.php';
+        header('location: /');
     }
 }

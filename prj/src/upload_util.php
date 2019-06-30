@@ -25,11 +25,12 @@ function uu_upload_and_process_file()
 
     // DB processes
     // $flags = array('d' => true);
+    $flags = array();
     if (isset($uu_data['file_to_process']) && file_exists($uu_data['file_to_process'])) {
         $las_db = las_db_init($uu_data['file_to_process'], $flags);
 
         $las_db = las_check_for_db($las_db);
-        las_process_records($las_db);
+        $las_db = las_process_records($las_db);
     }
 }
 

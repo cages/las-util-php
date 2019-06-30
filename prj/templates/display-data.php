@@ -8,6 +8,7 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
+require('las_get_data.php');
 ?>
 
 <!doctype html>
@@ -34,8 +35,9 @@
 
         <!-- Center Column Content Section -->
         <!-- <div class="col-sm-8"> -->
-        <div class="col-sm-10">
-            <p>TODO: add feature to display data</p>
+        <div class="col-sm-10 er">
+            <h3 class="text-center">Initial Las Header Table</h3>
+            <?php las_get_data() ?>
         </div>
         
         <!-- Right-side Column Content Section -->

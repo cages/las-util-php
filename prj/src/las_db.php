@@ -72,11 +72,14 @@ EOD;
 
     if (!$las_db['dbConn']) {
         echo $las_db['dbConn']->lastErrorMsg();
-    } else {
-        echo "Opened database successfully\n";
     }
 
     return $las_db;
+}
+
+function las_close_db($las_db)
+{
+    $las_db['dbConn']->close();
 }
 
 
@@ -153,4 +156,36 @@ function las_process_records($las_db)
         $statement->bindValue(':log_id', $field_log_id);
         $statement->execute();
     }
+}
+
+function las_query($las_db)
+{
+    if (!isset($las_db)) {
+        $las_db = array(
+            'dbConn' => null,
+            'log_id' => null,
+            'stdin'  => null,
+            'flags'  => null,
+            'db'     => dirname(__DIR__) . '/database/las.db'
+        );
+        $las_db = las_check_for_db($las_db);
+    }
+
+    if (!isset($las_db['dbConn']) &&  file_exists($las_db['db']))
+    {
+        $las_db['dbConn'] = new SQLite3($las_db['db']);
+    }
+    $db_conn = $las_db['dbConn'];
+
+    // $query_string = "SELECT name, value, note, log_id, from version";
+    $result = $db_conn->query("SELECT name, value, note, log_id from version;");
+
+    if ($result->fetchArray()[0] != null) {
+        echo '<table class="table-striped table-boarered"><tr><th>NAME</th><th>VALUE</th><th>NOTE</th></tr>';
+        while ($row = $result->fetchArray()) {
+            echo '<tr><td>' . $row['name'] . '</td><td>' . $row['value'] . '</td><td>' . $row['note'] . '</td></tr>';
+        }
+        echo '</table>';
+    }
+    return $las_db;
 }
