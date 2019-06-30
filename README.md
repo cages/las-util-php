@@ -33,10 +33,12 @@ LAS-Util current functionality:
 - uploads a las header file
 - parses the file
 - store it in a database
+- display the stored las header file data 
 
 Future versions will implement:
-- display the file data 
+- parse the next las section if included in the upload file
 - implement unit testing
+- clean up web display layout
 
 DEPENDENCIES
 ------------
