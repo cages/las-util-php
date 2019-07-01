@@ -18,14 +18,14 @@ make startserver
 In a web browser, browse to:    
 http://localhost:8000/upload
 
-Select a las file to upload. (There are examples in src/raw_data).
+Select a las file to upload. (There are examples in prj/raw_data).
 Click 'upload'    
 A message will report whether the file was uploaded or is already there.
  
 
 DESCRIPTION
 -----------
-Caution: This is very beta exporatory demo software!
+Caution: This is very beta exploratory demo software!
 
 This is a php project without a framework.
 
