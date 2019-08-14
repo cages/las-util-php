@@ -171,8 +171,7 @@ function las_query($las_db)
         $las_db = las_check_for_db($las_db);
     }
 
-    if (!isset($las_db['dbConn']) &&  file_exists($las_db['db']))
-    {
+    if (!isset($las_db['dbConn']) &&  file_exists($las_db['db'])) {
         $las_db['dbConn'] = new SQLite3($las_db['db']);
     }
     $db_conn = $las_db['dbConn'];

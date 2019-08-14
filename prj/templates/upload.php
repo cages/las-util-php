@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="fileToUpload" class="col-sm-4 col-form-label">Log Ascii Standard file to upload</label>
                 <div class="col-sm-8">
                     <input type="hidden" name="MAX_FILE_SIZE" value="16000000">
-                    <input type="file" class=form-control" name="fileToUpload" id="fileToUpload"
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload"
                     placeholder="File Name" maxlength="50"
                     required value="<?php is_file_to_upload() ?>"/>
                 </div>
