@@ -19,7 +19,7 @@ require('is_file_to_upload.php');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS File -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
   <script type="text/javascript" src="verify-file.js"></script>
 </head>
 
@@ -30,30 +30,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require('process-file.php');
 }
 ?>
-<div class="container" style="margin-top:30px">
+<div>
 <!-- Header Section -->
     <?php include('header.php'); ?>
 
 <!-- Body Section -->
-    <div class="row" style="padding-left: 0px">
+    <div>
         <!-- Left-side column Menu Section -->
         <?php include('nav.php'); ?>
 
         <!-- Center Column Content Section -->
-        <div class="col-sm-10">
-            <h2 class="h2 test-center">Upload Las File</h2>
+        <div>
+            <h2>Upload Las File</h2>
             <form action="upload" method="post" enctype="multipart/form-data" onSubmit="return verified()">
-            <div class="form-group row">
-                <label for="fileToUpload" class="col-sm-4 col-form-label">Log Ascii Standard file to upload</label>
-                <div class="col-sm-8">
+            <div class="uploadform">
+                <label for="fileToUpload">Log Ascii Standard file to upload</label>
+                <div>
                     <input type="hidden" name="MAX_FILE_SIZE" value="16000000">
-                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload"
+                    <input type="file" name="fileToUpload" id="fileToUpload"
                     placeholder="File Name" maxlength="50"
                     required value="<?php is_file_to_upload() ?>"/>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-12">
-                        <input id="submit" class="btn btn-primary" type="submit" name="upload" value="Upload">
+                <div>
+                    <div>
+                        <input id="submit" type="submit" name="upload" value="Upload">
                     </div>
                 </div>
             </div>
@@ -61,11 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         
         <!-- Right-side Column Content Section -->
-        <!--
-        <aside class="col-sm-2">
-            <?php include('info-col.php'); ?>
-        </aside>
-        -->
     </div>
     <?php include('footer.php'); ?>
 </div>

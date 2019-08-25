@@ -22,11 +22,13 @@ function main()
         '/display' => '../templates/display-data.php',
     );
 
-    // Grabs the URI and breaks in apart in case we have querystring stuff
+    // Grabs the URI and breaks in parts in case we have querystring stuff
     $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
 
-    // Route it up!
+    // ------------------------------------------------------------------------
+    // Redirect to either one of the registered routes or the default '/'.
+    // ------------------------------------------------------------------------
     if (array_key_exists($request_uri[0], $routes)) {
         require $routes[$request_uri[0]];
     } else {

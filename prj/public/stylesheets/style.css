@@ -1,0 +1,46 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+footer {
+  width: 100%;
+  padding: 20px;
+  /* background-color: #1BA1E2; */
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10px;
+  /* Pin footer to the bottom of the screen */
+  position: absolute;
+  bottom: 0;
+}
+
+table {
+  width: 100%;
+  padding: 20px;
+  border: 4px solid blue;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+h4 {
+  text-align: center;
+}
+
+.uploadform {
+	background: #fafafa;
+	text-align: center;
+}

@@ -17,32 +17,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS File -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-<div class="container" style="margin-top:30px">
+<div>
 <!-- Header Section -->
     <?php include('header.php'); ?>
 
 <!-- Body Section -->
-    <div class="row" style="padding-left: 0px">
+    <div>
         <!-- Left-side column Menu Section -->
-        <div class="col-sm-2">
+        <div>
             <?php include('nav.php'); ?>
         </div>
 
         <!-- Center Column Content Section -->
-        <!-- <div class="col-sm-8"> -->
-        <div class="col-sm-10">
+        <div>
         </div>
         
         <!-- Right-side Column Content Section -->
-        <!--
-        <aside class="col-sm-2">
-            <?php include('info-col.php'); ?>
-        </aside>
-        -->
     </div>
 <!-- Footer Section -->
     <?php include('footer.php'); ?>

@@ -7,7 +7,7 @@ SYNOPSIS
 
  ```bash
 # Setup:
-git clone https://github.com/cages/las-util-php
+git clone https://github.com/dcslagel/las-util-php
 cd las-util-php/prj
 # Make uploads and database directories
 make init
@@ -18,7 +18,7 @@ make startserver
 In a web browser, browse to:    
 http://localhost:8000/upload
 
-Select a las file to upload. (There are examples in prj/raw_data).
+Select a las file to upload. (version.las in prj/raw_data is a simple test file).
 Click 'upload'    
 A message will report whether the file was uploaded or is already there.
  
@@ -43,12 +43,7 @@ Future versions will implement:
 DEPENDENCIES
 ------------
 
-bootstrap     
-bootstrap version 3.3.7 is included in public/bootsrap    
-
-newer versions can be downloaded from:    
-https://github.com/twbs/bootstrap
-
+SQLite3
 
 
 
@@ -59,6 +54,7 @@ BUGS
 ----
 
 - Functionality is absolutely very basic...
+- LAS version is not displayed
 
 
 COPYRIGHT

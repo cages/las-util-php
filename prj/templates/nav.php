@@ -9,9 +9,8 @@
  * @license   MIT
  */
 ?>
-<nav class="col-sm-2">
-    <ul class="nav nav-pills flex-column">
-    <!-- <ul class="nav global"> -->
+<nav>
+    <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/upload">Upload Las File</a></li>
         <li><a href="/display">Display Las Data</a></li>

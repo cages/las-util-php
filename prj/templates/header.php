@@ -9,8 +9,8 @@
  * @license   MIT
  */
 ?>
-<header class="jumbotron text-center row" style="margin-bottom:2px; background:pale; padding:0px;">
-    <div class="col-sm-14">
-        <h1 class="font-bold">Log Ascii Standard Util</h1>
+<header>
+    <div>
+        <h1>Log Ascii Standard Util</h1>
     </div>
 </header>
