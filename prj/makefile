@@ -3,6 +3,8 @@
 # settings
 # ----------------------------------------------#
 PHP=php
+
+# Turn echo off on all make commands
 .SILENT: all
 
 # ----------------------------------------------#
@@ -11,11 +13,11 @@ PHP=php
 all:
 	make help
 
-runserver: ## Run development web server
-	php -S 127.0.0.1:8000 -t public
+run: ## Run development web server
+	$(PHP) -S 127.0.0.1:8000 -t public
 
 init: ## Create database and upload directories
-	php bin/init.php
+	$(PHP) bin/init.php
 
 help: ## This help dialog.
 	@IFS=$$'\n' ; \

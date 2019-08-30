@@ -16,12 +16,12 @@
   <title>Las Util</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS File -->
+  <!-- CSS File -->
   <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-<div>
+<div class="page">
 <!-- Header Section -->
     <?php include('header.php'); ?>
 
@@ -38,7 +38,9 @@
         
         <!-- Right-side Column Content Section -->
     </div>
-<!-- Footer Section -->
+</div>
+<div>
+    <!-- Footer Section -->
     <?php include('footer.php'); ?>
 </div>
 </body>

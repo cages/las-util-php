@@ -18,7 +18,7 @@ require('is_file_to_upload.php');
   <title>Las Util</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS File -->
+  <!-- CSS File -->
   <link rel="stylesheet" href="stylesheets/style.css">
   <script type="text/javascript" src="verify-file.js"></script>
 </head>
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require('process-file.php');
 }
 ?>
-<div>
+<div class="page">
 <!-- Header Section -->
     <?php include('header.php'); ?>
 
@@ -60,8 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
         </div>
         
-        <!-- Right-side Column Content Section -->
     </div>
+</div>
+<div>
+    <!-- Footer Section -->
     <?php include('footer.php'); ?>
 </div>
 </body>

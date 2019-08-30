@@ -1,10 +1,25 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
+  background: #eee;
 }
 
-a {
-  color: #00B7FF;
+a, h1, h2, h3 {
+  color: #377BA8;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  border-bottom: 2px solid #eee;
+}
+
+h2 {
+  font-size: 1.2em;
 }
 
 footer {
@@ -21,26 +36,27 @@ footer {
 
 table {
   width: 100%;
+  margin: 10px auto;
   padding: 20px;
-  border: 4px solid blue;
+  border: 4px solid #eee;
 }
 
-h1 {
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-}
-h4 {
-  text-align: center;
-}
+.page           { margin: 2em auto; width: 60em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; }
+.entries        { list-style: none; margin: 0; padding: 0; }
+.entries li     { margin: 0.8em 1.2em; }
+.entries li h2  { margin-left: -1em; }
+.add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-entry dl   { font-weight: bold; }
+.flash          { background: #CEE5F5; padding: 0.5em;
+                  border: 1px solid #AACBE2; }
+.form           { margin: 40px; border: 1px solid #ccc; padding: 40px; }
+.error          { background: #F0D6D6; padding: 0.5em; }
+.doc-detail     { font-size: 0.8em; }
 
 .uploadform {
-	background: #fafafa;
-	text-align: center;
+  text-align: center;
+  margin: 25px;
+  border: 1px solid #eee;
+  padding: 40px;
 }

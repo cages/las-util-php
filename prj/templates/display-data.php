@@ -17,12 +17,12 @@ require('las_get_data.php');
   <title>Las Util</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS File -->
+  <!-- CSS File -->
   <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-<div class="container">
+<div class="page">
 <!-- Header Section -->
     <?php include('header.php'); ?>
 
@@ -40,7 +40,9 @@ require('las_get_data.php');
             <?php las_get_data() ?>
         </div>
     </div>
-<!-- Footer Section -->
+</div>
+<div>
+    <!-- Footer Section -->
     <?php include('footer.php'); ?>
 </div>
 </body>

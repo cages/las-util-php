@@ -9,10 +9,12 @@ SYNOPSIS
 # Setup:
 git clone https://github.com/dcslagel/las-util-php
 cd las-util-php/prj
+
 # Make uploads and database directories
 make init
+
 # start development web server
-make startserver
+make run
 ```
 
 In a web browser, browse to:    
