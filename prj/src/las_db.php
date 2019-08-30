@@ -188,8 +188,15 @@ function las_query($las_db)
     // $query_string = "SELECT name, value, note, log_id, from version";
     $result = $db_conn->query('SELECT name, value, note, log_id from version;');
 
+    // dump results
+    // print_r($result);
+    
+    // This moves the curor past the first element so run $result->reset() to get rewind then
+    // run the while statement
     if ($result->fetchArray()[0] != null) {
-        echo '<table class="table-striped table-boarered"><tr><th>NAME</th><th>VALUE</th><th>NOTE</th></tr>';
+        echo '<table class="table"><tr><th>NAME</th><th>VALUE</th><th>NOTE</th></tr>';
+
+        $result->reset();
         while ($row = $result->fetchArray()) {
             echo '<tr><td>'.$row['name'].'</td><td>'.$row['value'].'</td><td>'.$row['note'].'</td></tr>';
         }

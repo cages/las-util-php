@@ -19,6 +19,10 @@ run: ## Run development web server
 init: ## Create database and upload directories
 	$(PHP) bin/init.php
 
+cleanuploads: ## remove all files from the uploads directory
+	ls -ltr uploads/
+	rm uploads/*
+
 help: ## This help dialog.
 	@IFS=$$'\n' ; \
 	help_lines=(`fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##/:/'`); \

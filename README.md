@@ -56,7 +56,6 @@ BUGS
 ----
 
 - Functionality is absolutely very basic...
-- LAS version is not displayed
 
 
 COPYRIGHT
