@@ -194,14 +194,14 @@ function las_query($las_db)
     // This moves the curor past the first element so run $result->reset() to get rewind then
     // run the while statement
     if ($result->fetchArray()[0] != null) {
-        echo '<table class="table"><tr><th>NAME</th><th>VALUE</th><th>NOTE</th></tr>';
+        echo '<table><tr><th>NAME</th><th>VALUE</th><th>NOTE</th></tr><tbody class="display-data">';
 
         $result->reset();
         while ($row = $result->fetchArray()) {
             echo '<tr><td>'.$row['name'].'</td><td>'.$row['value'].'</td><td>'.$row['note'].'</td></tr>';
         }
 
-        echo '</table>';
+        echo '</tbody></table>';
     }
 
     return $las_db;

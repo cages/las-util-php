@@ -20,6 +20,11 @@ h1 {
 
 h2 {
   font-size: 1.2em;
+  padding: 10px;
+}
+
+hr {
+  color: #eee;
 }
 
 footer {
@@ -34,26 +39,31 @@ footer {
   bottom: 0;
 }
 
+nav {
+  border-bottom: 2px solid #eee;
+} 
+
 table {
   width: 100%;
   margin: 10px auto;
   padding: 20px;
-  border: 4px solid #eee;
+  border: 4px solid #ccc;
+  background-color: #eee;
 }
 
-.page           { margin: 2em auto; width: 60em; border: 5px solid #ccc;
-                  padding: 0.8em; background: white; }
-.entries        { list-style: none; margin: 0; padding: 0; }
-.entries li     { margin: 0.8em 1.2em; }
-.entries li h2  { margin-left: -1em; }
-.add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
-.add-entry dl   { font-weight: bold; }
-.flash          { background: #CEE5F5; padding: 0.5em;
-                  border: 1px solid #AACBE2; }
-.form           { margin: 40px; border: 1px solid #ccc; padding: 40px; }
-.error          { background: #F0D6D6; padding: 0.5em; }
-.doc-detail     { font-size: 0.8em; }
+th {
+  color: #eee;
+  background-color: #377BA8;
+  text-align: left;
+}
 
+
+.page            { margin: 2em auto; width: 60em; border: 5px solid #ccc;
+                   padding: 0.8em; background: white; }
+.display-data tr { background-color: #ccc; }
+.doc-detail      { font-size: 0.7em; }
+.form            { margin: 40px; border: 1px solid #ccc; padding: 40px; }
+.error           { background: #F0D6D6; padding: 0.5em; }
 .uploadform {
   text-align: center;
   margin: 25px;

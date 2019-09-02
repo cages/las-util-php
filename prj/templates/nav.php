@@ -11,8 +11,8 @@
 ?>
 <nav>
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/upload">Upload Las File</a></li>
-        <li><a href="/display">Display Las Data</a></li>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/upload'>Upload LAS File</a></li>
+        <li><a href='/display'>Display LAS Data</a></li>
     </ul>
 </nav>

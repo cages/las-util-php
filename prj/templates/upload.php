@@ -8,14 +8,13 @@
  * @copyright 2019 DC Slagel
  * @license   MIT
  */
-
 require('is_file_to_upload.php');
 ?>
 
 <!doctype html>
 <html>
 <head>
-  <title>Las Util</title>
+  <title>Las-Util</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- CSS File -->
@@ -62,10 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
     </div>
 </div>
-<div>
-    <!-- Footer Section -->
-    <?php include('footer.php'); ?>
-</div>
+<?php include('footer.php'); ?>
 </body>
 </html>
 

@@ -10,7 +10,5 @@
  */
 ?>
 <header>
-    <div>
-        <h1>Log Ascii Standard Util</h1>
-    </div>
+    <h1>Log Ascii Standard Util</h1>
 </header>

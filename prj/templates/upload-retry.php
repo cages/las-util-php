@@ -13,7 +13,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Las Util</title>
+  <title>Las-Util</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- CSS File -->
@@ -57,11 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             </form>
         </div>
-        
-        <!-- Right-side Column Content Section -->
     </div>
-    <?php include('footer.php'); ?>
 </div>
+<?php include('footer.php'); ?>
 </body>
 </html>
 

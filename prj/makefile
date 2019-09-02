@@ -14,7 +14,7 @@ all:
 	make help
 
 run: ## Run development web server
-	$(PHP) -S 127.0.0.1:8000 -t public
+	$(PHP) -S 127.0.0.1:7000 -t public
 
 init: ## Create database and upload directories
 	$(PHP) bin/init.php
