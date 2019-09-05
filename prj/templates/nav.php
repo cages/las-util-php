@@ -1,6 +1,6 @@
 <?php
 /**
- * Left Nav
+ * Main Menu Nav
  *
  * @category
  * @package   Las-Util-Php
@@ -13,6 +13,6 @@
     <ul>
         <li><a href='/'>Home</a></li>
         <li><a href='/upload'>Upload LAS File</a></li>
-        <li><a href='/display'>Display LAS Data</a></li>
+        <li><a href='/list'>Display LAS Files</a></li>
     </ul>
 </nav>

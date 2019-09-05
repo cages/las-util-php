@@ -3,6 +3,7 @@
 # settings
 # ----------------------------------------------#
 PHP=php
+SQLITE=sqlite3
 
 # Turn echo off on all make commands
 .SILENT: all
@@ -16,8 +17,11 @@ all:
 run: ## Run development web server
 	$(PHP) -S 127.0.0.1:7000 -t public
 
-init: ## Create database and upload directories
+initdirs: ## Create database and upload directories
 	$(PHP) bin/init.php
+
+initdb: ## Use SQLite3 command line tool to create database
+	$(SQLITE) database/las.db < bin/mk_version_table.sql
 
 cleanuploads: ## remove all files from the uploads directory
 	ls -ltr uploads/

@@ -15,11 +15,12 @@ declare(strict_types = 1);
 function las_db_init($file, $flags)
 {
     $las_db = [
+        'db'     => dirname(__DIR__).'/database/las.db',
         'dbConn' => null,
+        'filename' => basename($file),
+        'flags'  => null,
         'log_id' => null,
         'stdin'  => null,
-        'flags'  => null,
-        'db'     => dirname(__DIR__).'/database/las.db',
     ];
 
     // Save optional flags
@@ -60,11 +61,13 @@ function las_check_for_db($las_db)
         $create_string = <<<'EOD'
 CREATE TABLE IF NOT EXISTS "version" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  "filename" VARCHAR(100),
+  "section" VARCHAR(30),
   "name" VARCHAR(10),
   "value" VARCHAR(100),
   "note" VARCHAR(100),
   "log_id" CHAR(65),
-  UNIQUE (name, log_id) ON CONFLICT IGNORE
+  UNIQUE (filename, name, log_id) ON CONFLICT ROLLBACK
 );
 EOD;
 
@@ -84,8 +87,7 @@ function las_close_db($las_db)
     $las_db['dbConn']->close();
 }//end las_close_db()
 
-
-function las_process_records($las_db)
+function debug_records($las_db)
 {
     $flags        = $las_db['flags'];
     $db_handle    = $las_db['dbConn'];
@@ -94,21 +96,30 @@ function las_process_records($las_db)
 
     $curr_las_header = null;
 
-    /*
-        // $tq = $db_handle->query("SELECT name FROM sqlite_master WHERE type='table';");
-        $tq = $db_handle->query("SELECT name from sqlite_master;");
+    // $tq = $db_handle->query("SELECT name FROM sqlite_master WHERE type='table';");
+    $tq = $db_handle->query("SELECT name from sqlite_master;");
 
-        while ($row = $tq->fetchArray(1)) {
+    while ($row = $tq->fetchArray(1)) {
         print_r($row);
         echo '<br>';
-        }
-        exit();
-    */
+    }
+    exit();
+}
+
+function las_process_records($las_db)
+{
+    $db_handle      = $las_db['dbConn'];
+    $field_log_id   = $las_db['log_id'];
+    $field_filename = $las_db['filename'];
+    $flags          = $las_db['flags'];
+    $stdin          = $las_db['stdin'];
+
+    $field_section = null;
 
     while (($line = fgets($stdin)) !== false) {
         $line = trim($line);
         if ($line[0] === '~') {
-            $curr_las_header = $line;
+            $field_section = $line;
             continue;
         }
 
@@ -137,26 +148,32 @@ function las_process_records($las_db)
         // Enter data in the database.
         // Note: this could be moved to speparate function.
         // --------------------------------------------------------------------
-        $field_name  = SQLite3::escapeString($field_name);
-        $field_unit  = SQLite3::escapeString($field_unit);
-        $field_value = SQLite3::escapeString($field_value);
-        $field_note  = SQLite3::escapeString($field_note);
+        $field_filename = SQLite3::escapeString($field_filename);
+        $field_section  = SQLite3::escapeString($field_section);
+        $field_name     = SQLite3::escapeString($field_name);
+        $field_unit     = SQLite3::escapeString($field_unit);
+        $field_value    = SQLite3::escapeString($field_value);
+        $field_note     = SQLite3::escapeString($field_note);
 
         if (array_key_exists('d', $flags)) {
-            echo "Field_Name  : [$field_name]<br>";
-            echo "Field_Unit  : [$field_unit]<br>";
-            echo "Field_Value : [$field_value]<br>";
-            echo "Field_Note  : [$field_note]<br>";
-            echo "Field_Sha   : [$field_log_id]<br>";
+            echo "Field_Filename : [$field_filename]<br>";
+            echo "Field_Section  : [$field_section]<br>";
+            echo "Field_Name     : [$field_name]<br>";
+            echo "Field_Unit     : [$field_unit]<br>";
+            echo "Field_Value    : [$field_value]<br>";
+            echo "Field_Note     : [$field_note]<br>";
+            echo "Field_Sha      : [$field_log_id]<br>";
             echo '<br>#---------------------------#<br>';
         }
 
         // Insert data into row/tuple
         $statement = $db_handle->prepare(
             'INSERT INTO version 
-            ("name", "value", "note", "log_id")
-            VALUES (:name, :value, :note, :log_id)'
+            ("filename", "section", "name", "value", "note", "log_id")
+            VALUES (:filename, :section, :name, :value, :note, :log_id)'
         );
+        $statement->bindValue(':filename', $field_filename);
+        $statement->bindValue(':section', $field_section);
         $statement->bindValue(':name', $field_name);
         $statement->bindValue(':value', $field_value);
         $statement->bindValue(':note', $field_note);
@@ -186,7 +203,7 @@ function las_query($las_db)
     $db_conn = $las_db['dbConn'];
 
     // $query_string = "SELECT name, value, note, log_id, from version";
-    $result = $db_conn->query('SELECT name, value, note, log_id from version;');
+    $result = $db_conn->query('SELECT filename, section, name, value, note, log_id from version;');
 
     // dump results
     // print_r($result);
@@ -194,11 +211,19 @@ function las_query($las_db)
     // This moves the curor past the first element so run $result->reset() to get rewind then
     // run the while statement
     if ($result->fetchArray()[0] != null) {
-        echo '<table><tr><th>NAME</th><th>VALUE</th><th>NOTE</th></tr><tbody class="display-data">';
+        $fields = ['filename', 'section', 'name', 'value', 'note'];
+
+        echo '<table class="doc-detail">';
+        echo '<tr><th>FILENAME</th><th>SECTION</th><th>NAME</th><th>VALUE</th><th>NOTE</th></tr>';
+        echo '<tbody class="display-data">';
 
         $result->reset();
         while ($row = $result->fetchArray()) {
-            echo '<tr><td>'.$row['name'].'</td><td>'.$row['value'].'</td><td>'.$row['note'].'</td></tr>';
+            echo '<tr>';
+            foreach ($fields as $field) {
+                echo '<td>'.$row[$field].'</td>';
+            }
+            echo '</tr>';
         }
 
         echo '</tbody></table>';

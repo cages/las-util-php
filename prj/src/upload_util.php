@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 
 // Debugging
-// print_r($_FILES["fileToUpload"]);
+// print_r($_FILES["fileToUpload"]['name']);
 
 // Upload and process wrapper function
 function uu_upload_and_process_file()
@@ -86,6 +86,10 @@ function uu_get_file_loc(array $uu_data) : array
 
     // Build to_path
     $name = basename($_FILES["fileToUpload"]["name"]);
+    $entry_date = (new DateTime())->format('Y-m-d-H-i-s');
+    $path_parts = pathinfo($name);
+    $name = $path_parts['filename'] . '-' . $entry_date . '.' . $path_parts['extension'];
+
     $to_path = $uu_data['upload_dir'] . "/$name";
 
     if (file_exists($to_path)) {

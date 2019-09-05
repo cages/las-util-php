@@ -30,10 +30,10 @@ function verified() {
         // alert("File " + file.name + " is " + file.size + " bytes in size");
 
         // TODO: Fix append
-        var newElem = document.createElement('p');
-        newElem.innerHTML = "File " + file.name + " is " + file.size + " bytes in size";
-        var newAside = document.getElementByTag('aside');
-        item.appendChild(newElem)
+        // var newElem = document.createElement('p');
+        // newElem.innerHTML = "File " + file.name + " is " + file.size + " bytes in size";
+        // var newAside = document.getElementByTag('aside');
+        // item.appendChild(newElem)
         // document.bodyAppend("p", "File " + file.name + " is " + file.size + " bytes in size");
         return 1;
     }

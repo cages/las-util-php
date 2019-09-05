@@ -10,8 +10,14 @@ SYNOPSIS
 git clone https://github.com/dcslagel/las-util-php
 cd las-util-php/prj
 
+# View makefile menu
+make help
+
 # Make uploads and database directories
 make init
+
+# Make database, this depends on Sqlite3 being installed
+make initdb
 
 # start development web server
 make run
@@ -20,9 +26,11 @@ make run
 In a web browser, browse to:    
 http://localhost:7000/upload
 
-Select a LAS file to upload. (version.las in prj/raw_data is a simple test file).
+Select a LAS file with only a ~VERSION section to upload.
+Version.las in prj/example_data is verified to work.
 Click 'upload'    
-A message will report whether the file was uploaded or is already there.
+
+Select the 'Display LAS Files' menu item. The uploaded file will have the most recent date.
  
 
 DESCRIPTION

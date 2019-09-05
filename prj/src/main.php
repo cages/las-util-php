@@ -14,23 +14,41 @@ declare(strict_types = 1);
 function main()
 {
     require_once '../config/config.php';
+    require_once 'views.php';
+    require_once 'las_db_utils.php';
 
+
+    // ROUTE DEFINITIONS
     $routes = array(
-        '/'        => '../templates/home.php',
-        '/about'   => '../templates/about.php',
-        '/upload'  => '../templates/upload.php',
-        '/display' => '../templates/display-data.php',
+        '/'              => 'home',
+        '/about'         => 'about',
+        '/list'          => 'display_file_list',
+        '/displaydetail' => 'display_detail',
+        '/upload'        => 'upload',
     );
 
-    // Grabs the URI and breaks in parts in case we have querystring stuff
+    // ROUTE ACTIONS
+    // Grab the URI and breaks in parts in case we have querystring stuff
     $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
+    /* DISPLAY HTTP DATA
+    print_r($_SERVER);
+    print_r($_POST);
+    print_r($_GET);
+    print_r($_FILES);
+    or
+    echo file_get_contents( 'php://input' );
+     */
 
     // ------------------------------------------------------------------------
     // Redirect to either one of the registered routes or the default '/'.
     // ------------------------------------------------------------------------
     if (array_key_exists($request_uri[0], $routes)) {
-        require $routes[$request_uri[0]];
+        if (array_key_exists('QUERY_STRING', $_SERVER)) {
+            $routes[$request_uri[0]]($_SERVER['QUERY_STRING']);
+        } else {
+            $routes[$request_uri[0]]();
+        }
     } else {
         // Default route : Home
         header('location: /');
