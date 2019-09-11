@@ -1,3 +1,5 @@
+# Copyright: Copyright (c) 2019, DC Slagel
+# License-Identifier: MIT
 
 # ----------------------------------------------#
 # settings

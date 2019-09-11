@@ -34,8 +34,8 @@ if ($result->fetchArray()[0] != null) {
         echo '<td><a href=/displaydetail?'.$filename.'>'.$filename.'</a></td>', "\n";
         echo '</tr>', "\n";
     }
-    echo '</table>', "\n";
     echo '</tbody>', "\n";
+    echo '</table>', "\n";
 }
 ?>
 </div>
