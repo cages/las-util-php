@@ -31,7 +31,7 @@ if ($result->fetchArray()[0] != null) {
     while ($row = $result->fetchArray(1)) {
         $filename = $row['filename'];
         echo '<tr>', "\n";
-        echo '<td><a href=/displaydetail?'.$filename.'>'.$filename.'</a></td>', "\n";
+        echo '<td><a href=/detail?'.$filename.'>'.$filename.'</a></td>', "\n";
         echo '</tr>', "\n";
     }
     echo '</tbody>', "\n";

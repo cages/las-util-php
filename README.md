@@ -1,6 +1,7 @@
 NAME
 ----
-LAS Util - LAS Web tools in Php 
+
+LAS Util - LAS web tools in Php 
 
 SYNOPSIS
 --------
@@ -26,34 +27,66 @@ make run
 In a web browser, browse to:    
 http://localhost:7000/upload
 
-Select a LAS file with only a ~VERSION section to upload.
-Version.las in prj/example_data is verified to work.
+Select a LAS file with only a ~VERSION section to upload.    
+Version.las in prj/example_data is verified to work.    
 Click 'upload'    
 
+  LAS-Util will:
+  - upload the file to las-util-flask/src/uploads
+  - parse the version section and save it to the database
+
 Select the 'Display LAS Files' menu item. The uploaded file will have the most recent date.
- 
+
+REST API
+--------
+
+To retrieve uploaded LAS docs:
+```bash
+curl http://127.0.0.1:7000/api/list
+```
+
+To retreive details of a specific LAS doc 
+Syntax:    
+```bash
+curl http://127.0.0.1:7000/api/detail/[filename]    
+```
+
+Example:     
+```bash
+# first retrieve a filename from the prvious 'api/list' call
+# example: las_file-2019-08-29-21-41-42.las
+curl http://127.0.0.1:7000/api/detail/las_file-2019-08-29-21-41-42.las
+```
+
 
 DESCRIPTION
 -----------
-Caution: This is very beta exploratory demo software!
+Caution: This is beta software!
 
-LAS-Util-Php is a php project without a framework.
+LAS (Log Ascii Standard) web utilities in non-framework PHP
 
-LAS file format versions are written and maintained by 
-the Canadian Well Logging Society at   
+This utility is based on the LAS file format specification   
+maintained by the Canadian Well Logging Society at   
 http://www.cwls.org/las/
 
 
 LAS-Util current functionality:
-- Uploads a las header file
-- Parses the file
-- Store it in a database
-- Display the stored las header file data 
+- Upload a LAS file that includes only the VERSION section
+- Parse the VERSION section and save it to the database
+- Display a list of uploaded files
+- Display details on a selected uploaded file
+- **Provide api for listing uploaded LAS docs and details**
+
+
+It has been tested with PHP 7.3.9 
+
 
 Future versions will implement:
+- Add LAS file posting api
 - Parse the next las section if included in the upload file
 - Implement unit testing
-- Implement rest api
+- Clean up web display layout
+
 
 DEPENDENCIES
 ------------
@@ -68,11 +101,10 @@ OPTIONS
 BUGS
 ----
 
-- Functionality is very basic...
+- Functionality is very basic.
 
 
 COPYRIGHT
 ------
 
 Copyright (c) 2019 DC Slagel
-

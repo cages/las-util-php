@@ -20,11 +20,13 @@ function main()
 
     // ROUTE DEFINITIONS
     $routes = array(
-        '/'              => 'home',
-        '/about'         => 'about',
-        '/list'          => 'display_file_list',
-        '/displaydetail' => 'display_detail',
-        '/upload'        => 'upload',
+        '/'           => 'home',
+        '/about'      => 'about',
+        '/list'       => 'display_list',
+        '/detail'     => 'detail',
+        '/upload'     => 'upload',
+        '/api/list'   => 'restlist',
+        '/api/detail' => 'restdetail',
     );
 
     // ROUTE ACTIONS
