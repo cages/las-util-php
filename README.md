@@ -32,7 +32,7 @@ Version.las in prj/example_data is verified to work.
 Click 'upload'    
 
   LAS-Util will:
-  - upload the file to las-util-flask/src/uploads
+  - upload the file to a local uploads directory
   - parse the version section and save it to the database
 
 Select the 'Display LAS Files' menu item. The uploaded file will have the most recent date.
@@ -53,7 +53,7 @@ curl http://127.0.0.1:7000/api/detail/[filename]
 
 Example:     
 ```bash
-# first retrieve a filename from the prvious 'api/list' call
+# first retrieve a filename from the previous 'api/list' call
 # example: las_file-2019-08-29-21-41-42.las
 curl http://127.0.0.1:7000/api/detail/las_file-2019-08-29-21-41-42.las
 ```
