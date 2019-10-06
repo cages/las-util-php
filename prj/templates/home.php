@@ -24,7 +24,7 @@
 <?php include('header.php'); ?>
 
 <?php include('nav.php'); ?>
-    <p>Welcome to the Log Ascii Standard Util</p>
+    <h2>Welcome to the Log Ascii Standard Util</h2>
 </div>
 <?php include('footer.php'); ?>
 </body>
