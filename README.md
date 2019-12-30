@@ -45,10 +45,10 @@ To retrieve uploaded LAS docs:
 curl http://127.0.0.1:7000/api/list
 ```
 
-To retreive details of a specific LAS doc 
+To retrieve details of a specific LAS doc 
 Syntax:    
 ```bash
-curl http://127.0.0.1:7000/api/detail/[filename]    
+curl http://127.0.0.1:7000/api/detail?[filename]    
 ```
 
 Example:     
