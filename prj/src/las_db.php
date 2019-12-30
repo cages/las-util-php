@@ -118,10 +118,14 @@ function las_process_records($las_db)
 
     while (($line = fgets($stdin)) !== false) {
         $line = trim($line);
+        // If section header '~' or comment '#' skip
         if ($line[0] === '~') {
             $field_section = $line;
             continue;
+        } elseif ($line[0] === '#') {
+            continue;
         }
+        
 
         // --------------------------------------------------------------------
         // Parse the fields from the text string
@@ -141,7 +145,11 @@ function las_process_records($las_db)
 
         // value field precedes the last non-time colon
         // note field follows the last non-time colon
-        preg_match('/^\s*(?<field_value>.*): (?<field_note>.*)$/', "$remaining_string", $matches);
+        $myregex = '/^(?<field_value>.*)(?![0-9hH]):(?![0-9mM])(?<field_note>.*)$/';
+
+        preg_match($myregex, "$remaining_string", $matches);
+
+        // Break array into separate variables
         list(, $field_value, $field_note) = array_map('trim', $matches);
 
         // --------------------------------------------------------------------

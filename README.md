@@ -55,7 +55,7 @@ Example:
 ```bash
 # first retrieve a filename from the previous 'api/list' call
 # example: las_file-2019-08-29-21-41-42.las
-curl http://127.0.0.1:7000/api/detail/las_file-2019-08-29-21-41-42.las
+curl http://127.0.0.1:7000/api/detail?las_file-2019-08-29-21-41-42.las
 ```
 
 
@@ -73,6 +73,7 @@ http://www.cwls.org/las/
 LAS-Util current functionality:
 - Upload a LAS file that includes only the VERSION section
 - Parse the VERSION section and save it to the database
+- Parse the WELL INFORMATION section and save it to the database
 - Display a list of uploaded files
 - Display details on a selected uploaded file
 - **Provide api for listing uploaded LAS docs and details**
