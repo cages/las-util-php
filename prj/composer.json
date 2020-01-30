@@ -1,0 +1,36 @@
+{
+  "name": "las-util/las-util-php",
+  "description": "LAS (Log Ascii Standard) web utilities in php",
+  "license": "MIT",
+  "keywords": ["las-files", "log-ascii-standard", "welllogs", "well-logs"],
+  "homepage": "https://github.com/dcslagel/las-util-php",
+  "authors": [
+    {
+      "name": "DC Slagel",
+      "homepage": "https://github.com/dcslagel",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/dcslagel/las-util-php/issues"
+  },
+  "require": {
+  },
+  "require-dev": {
+    "filp/whoops": "^2.1",
+    "patricklouys/http": "^1.4"
+  },
+  "scripts": {
+    "listfiles": [
+      "find . -type f -ls",
+      "tree -d"
+    ],
+    "phpcs": "phpcs -p -s",
+    "fix": "phpcbf"
+  },
+  "autoload": {
+    "psr-4": {
+      "Las\\": "src/"
+    }
+  }
+}

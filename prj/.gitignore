@@ -1,0 +1,11 @@
+
+# Editors
+.*.swp
+
+# Composer
+/vendor
+
+# Las-Util-Php generated directories
+/database
+/uploads
+
