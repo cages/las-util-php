@@ -26,6 +26,7 @@
 if ($result->fetchArray()[0] != null) {
     $fields = ['filename', 'section', 'name', 'value', 'note'];
 
+/* table top -----------------------------------*/
     $tabletop = <<<TABLETOP
 <table class="doc-detail">
 <thead>
@@ -40,21 +41,53 @@ if ($result->fetchArray()[0] != null) {
 
 TABLETOP;
 
+/* table end -----------------------------------*/
     $tableend = <<<TABLEEND
 </tbody>
 </table>
 
 TABLEEND;
 
-    echo $tabletop;
+    $version_table = '';
+    $well_table = '';
+    $curve_table = '';
+
 
     $result->reset();
     while ($row = $result->fetchArray()) {
-        echo '<tr>', "\n";
+        $version_row = '';
+        $well_row = '';
+        $curve_row = '';
+
         foreach ($fields as $field) {
-            echo '<td>'.$row[$field].'</td>', "\n";
+            if (substr($row['section'], 0, 2) === '~V') {
+                $version_row = $version_row . '<td>'.$row[$field].'</td>' . "\n";
+            } elseif (substr($row['section'], 0, 2) === '~W') {
+                $well_row = $well_row . '<td>'.$row[$field].'</td>' . "\n";
+            } elseif (substr($row['section'], 0, 2) === '~C') {
+                $curve_row = $curve_row . '<td>'.$row[$field].'</td>' . "\n";
+            }
         }
-        echo '</tr>', "\n";
+
+        if ($version_row !== '') {
+            $version_table = $version_table . '<tr>' . $version_row .  '</tr>'. "\n";
+        }
+        if ($well_row !== '') {
+            $well_table = $well_table . '<tr>' . $well_row .  '</tr>'. "\n";
+        }
+        if ($curve_row !== '') {
+            $curve_table = $curve_table . '<tr>' . $curve_row .  '</tr>'. "\n";
+        }
+    }
+    echo $tabletop;
+    if ($version_table !== '') {
+        echo $version_table;
+    }
+    if ($well_table !== '') {
+        echo $well_table;
+    }
+    if ($curve_table !== '') {
+        echo $curve_table;
     }
     echo $tableend;
 }

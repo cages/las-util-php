@@ -139,9 +139,11 @@ function las_process_records($las_db)
         // --------------------------------------------------------------------
         // field_name precedes the first-dot
         list($field_name, $remaining_string) = explode('.', $line, 2);
+        $field_name = trim($field_name);
 
         // optional unit field follows the first space after the dot
         list($field_unit, $remaining_string) = explode(' ', $remaining_string, 2);
+        $field_unit = trim($field_unit);
 
         // value field precedes the last non-time colon
         // note field follows the last non-time colon
