@@ -19,6 +19,9 @@ all:
 run: ## Run development web server
 	$(PHP) -S 127.0.0.1:7000 -t public
 
+install_devdeps:  ## Use composer to install development dependencies
+	composer install --dev
+
 initdirs: ## Create database and upload directories
 	$(PHP) bin/init.php
 

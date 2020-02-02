@@ -44,7 +44,7 @@ function detail($query_string)
     $db_handle = $las_db['dbConn'];
 
     $statement = $db_handle->prepare(
-        'SELECT * FROM version WHERE filename = :filename;'
+        'SELECT * FROM version WHERE filename = :filename ORDER BY id;'
     );
     $statement->bindValue(':filename', $query_string);
     $result = $statement->execute();
@@ -81,7 +81,7 @@ function restdetail($query_string)
     $mydata = [];
 
     $statement = $db_handle->prepare(
-        'SELECT * FROM version WHERE filename = :filename;'
+        'SELECT * FROM version WHERE filename = :filename ORDER BY id;'
     );
     $statement->bindValue(':filename', $query_string);
     $result = $statement->execute();

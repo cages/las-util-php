@@ -15,7 +15,7 @@ cd las-util-php/prj
 make help
 
 # Make uploads and database directories
-make init
+make initdirs
 
 # Make database, this depends on Sqlite3 being installed
 make initdb
@@ -27,13 +27,19 @@ make run
 In a web browser, browse to:    
 http://localhost:7000/upload
 
-Select a LAS file with only a ~VERSION section to upload.    
-Version.las in prj/example_data is verified to work.    
+Select the LAS file **prj/example_data/sample_next.las** to upload.  It is
+verified to process correctly.
+
+The sample_next.las currently is made up of the header sections: version, well
+and curve.  
+Additional header sections and the '~A' data section will be added
+in future iterations.
+
 Click 'upload'    
 
   LAS-Util will:
   - upload the file to a local uploads directory
-  - parse the version section and save it to the database
+  - parse the the file's information and save it to the database
 
 Select the 'Display LAS Files' menu item. The uploaded file will have the most recent date.
 
@@ -61,7 +67,7 @@ curl http://127.0.0.1:7000/api/detail?las_file-2019-08-29-21-41-42.las
 
 DESCRIPTION
 -----------
-Caution: This is beta software!
+Caution: This is beta software with limited functionality.
 
 LAS (Log Ascii Standard) web utilities in non-framework PHP
 
@@ -71,22 +77,22 @@ http://www.cwls.org/las/
 
 
 LAS-Util current functionality:
-- Upload a LAS file that includes only the VERSION section
-- Parse the VERSION section and save it to the database
-- Parse the WELL INFORMATION section and save it to the database
+- Upload a LAS file that includes only the VERSION, WELL and CURVE header
+  sections
+  Parse the sections and add them to the database
 - Display a list of uploaded files
 - Display details on a selected uploaded file
-- **Provide api for listing uploaded LAS docs and details**
+- Provide api for listing uploaded LAS docs and details
 
 
-It has been tested with PHP 7.3.9 
+It has been tested with PHP 7.4.1 
 
 
 Future versions will implement:
-- Add LAS file posting api
-- Parse the next las section if included in the upload file
+- Parse the PARAMETER las section if included in the upload file
 - Implement unit testing
-- Clean up web display layout
+- Add LAS file posting api
+- Improve web display layout
 
 
 DEPENDENCIES
@@ -99,10 +105,11 @@ SQLite3
 OPTIONS
 -------
 
+
 BUGS
 ----
 
-- Functionality is very basic.
+- Basic functionality is incomplete.
 
 
 COPYRIGHT

@@ -165,6 +165,7 @@ function las_process_records($las_db)
         $field_value    = SQLite3::escapeString($field_value);
         $field_note     = SQLite3::escapeString($field_note);
 
+        // If debug key ('d') in flags, turn on debug display
         if (array_key_exists('d', $flags)) {
             echo "Field_Filename : [$field_filename]<br>";
             echo "Field_Section  : [$field_section]<br>";
