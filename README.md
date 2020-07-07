@@ -94,6 +94,18 @@ Future versions will implement:
 - Add LAS file posting api
 - Improve web display layout
 
+PROJECT-ROADMAP
+---------------
+`LAS-Util-Php`'s project road-map is managed in github milestones at:    
+
+https://github.com/dcslagel/las-util-php/milestones
+
+The current work-in-progress milestone is 0.1.1:
+
+- https://github.com/dcslagel/las-util-php/projects/3
+- Goal: 
+  - Focus on user interface improvements particularly related to the 'Display Files' menu section.
+
 
 DEPENDENCIES
 ------------
