@@ -1,9 +1,47 @@
 NAME
 ----
+LAS Util - Log Ascii Standard 2.0 web tools in Php 
 
-LAS Util - LAS web tools in Php 
+TABLE-OF-CONTENTS
+-----------------
+- [DESCRIPTION](#description)
+- [SYNOPSIS](#synopsis)
+- [DEPENDENCIES](#dependencies)
+- [PROJECT-ROADMAP](#project-roadmap)
+- [REST-API](#rest-api)
+- [FEATURE-REQUEST](#feature-request)
+- [BUGS](#bugs)
+- [COPYRIGHT](#copyright)
 
-SYNOPSIS
+[DESCRIPTION](#name)
+-----------
+
+Caution: This is beta software with limited functionality.
+
+LAS (Log Ascii Standard) web utilities in non-framework PHP
+
+The current goals of `las-util-php` are:
+- Parse LAS 2.0 meta-data and data sections
+- Explore software design issues related to non-framework PHP
+- Exlopre responsive web design issue with data related web tools
+
+This utility is based on the LAS file format specification   
+maintained by the Canadian Well Logging Society at   
+https://www.cwls.org/products/#products-las
+
+
+LAS-Util current functionality:
+- Upload a LAS file that includes only the VERSION, WELL and CURVE header
+  sections
+-  Parse the sections and add them to the database
+- Display a list of uploaded files
+- Display details on a selected uploaded file
+- Provide api for listing uploaded LAS docs and details
+
+
+LAS-Util has been tested with PHP 7.4.1 
+
+[SYNOPSIS](#name)
 --------
 
  ```bash
@@ -27,7 +65,7 @@ make run
 In a web browser, browse to:    
 http://localhost:7000/upload
 
-Select the LAS file **prj/example_data/sample_next.las** to upload.  It is
+Select the LAS file prj/example_data/sample_next.las to upload.  It is
 verified to process correctly.
 
 The sample_next.las currently is made up of the header sections: version, well
@@ -43,7 +81,25 @@ Click 'upload'
 
 Select the 'Display LAS Files' menu item. The uploaded file will have the most recent date.
 
-REST API
+[DEPENDENCIES](#name)
+------------
+
+SQLite3
+
+
+[PROJECT-ROADMAP](#name)
+---------------
+`LAS-Util-Php`'s project road-map is managed in github milestones at:    
+
+https://github.com/dcslagel/las-util-php/milestones
+
+The current work-in-progress milestone is 0.1.1:
+
+- https://github.com/dcslagel/las-util-php/projects/3
+- Goal: 
+  - Focus on user interface improvements particularly related to the 'Display Files' menu section.
+
+[REST-API](#name)
 --------
 
 To retrieve uploaded LAS docs:
@@ -65,66 +121,24 @@ curl http://127.0.0.1:7000/api/detail?las_file-2019-08-29-21-41-42.las
 ```
 
 
-DESCRIPTION
------------
-Caution: This is beta software with limited functionality.
+[FEATURE-REQUEST](#name)
+----------------
 
-LAS (Log Ascii Standard) web utilities in non-framework PHP
-
-This utility is based on the LAS file format specification   
-maintained by the Canadian Well Logging Society at   
-https://www.cwls.org/products/#products-las
+To request and discuss a potiential feature create an issue at:
+  - https://github.com/dcslagel/las-util-php/issues
 
 
-LAS-Util current functionality:
-- Upload a LAS file that includes only the VERSION, WELL and CURVE header
-  sections
-  Parse the sections and add them to the database
-- Display a list of uploaded files
-- Display details on a selected uploaded file
-- Provide api for listing uploaded LAS docs and details
-
-
-It has been tested with PHP 7.4.1 
-
-
-Future versions will implement:
-- Parse the PARAMETER las section if included in the upload file
-- Implement unit testing
-- Add LAS file posting api
-- Improve web display layout
-
-PROJECT-ROADMAP
----------------
-`LAS-Util-Php`'s project road-map is managed in github milestones at:    
-
-https://github.com/dcslagel/las-util-php/milestones
-
-The current work-in-progress milestone is 0.1.1:
-
-- https://github.com/dcslagel/las-util-php/projects/3
-- Goal: 
-  - Focus on user interface improvements particularly related to the 'Display Files' menu section.
-
-
-DEPENDENCIES
-------------
-
-SQLite3
-
-
-
-OPTIONS
--------
-
-
-BUGS
+[BUGS](#name)
 ----
 
-- Basic functionality is incomplete.
+- Functionality is limited to reading some fields from a LAS file containing
+  only the v2.0 type sections.  
+
+- Report bugs by creating an issue at:
+  - https://github.com/dcslagel/las-util-php/issues
 
 
-COPYRIGHT
+[COPYRIGHT](#name)
 ------
 
 Copyright (c) 2019 DC Slagel
