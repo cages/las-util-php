@@ -73,7 +73,7 @@ LAS (Log Ascii Standard) web utilities in non-framework PHP
 
 This utility is based on the LAS file format specification   
 maintained by the Canadian Well Logging Society at   
-https://www.cwls.org/product/
+https://www.cwls.org/products/#products-las
 
 
 LAS-Util current functionality:
