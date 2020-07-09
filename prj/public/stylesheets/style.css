@@ -35,19 +35,19 @@ hr {
 
 footer {
   width: 100%;
-  padding: 1.25em;
-  /* background-color: #1BA1E2; */
-  margin: 0 auto;
+  padding: 1em;
   text-align: center;
   font-size: 0.625em;
+  background-color: #eee;
+  position: fixed;
   /* Pin footer to the bottom of the screen */
-  position: absolute;
   bottom: 0;
 }
 
 nav {
   border-bottom: 0.1em solid #eee;
 }
+
 
 table {
   width: 100%;
@@ -72,7 +72,6 @@ li {
   display: inline-block;
   padding: 0.3em 0.6em;
 }
-
 
 .page {
   margin: 2em auto;
