@@ -89,6 +89,10 @@ li {
 .display-data tr {
   background-color: #ccc;
 }
+/* table striping */
+.display-data tr:nth-of-type(odd) {
+  background: #ddd;
+}
 
 .doc-detail {
   font-size: 0.65em;
