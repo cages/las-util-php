@@ -1,5 +1,23 @@
 :root {
-  font-size: 1em;
+  font-size: 0.75em;
+}
+
+@media (min-width: 800px) {
+  :root {
+    font-size: 0.875em;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    font-size: 1.5em;
+  }
 }
 
 body {
@@ -95,7 +113,19 @@ li {
 }
 
 .doc-detail {
-  font-size: 0.65em;
+  font-size: 0.3em;
+}
+
+@media (min-width: 570px) {
+  .doc-detail {
+    font-size: 0.65em;
+  }
+}
+
+@media (min-width: 800px) {
+  .doc-detail {
+    font-size: .7em;
+  }
 }
 
 .form {
