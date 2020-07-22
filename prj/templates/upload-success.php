@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <!-- Center Column Content Section -->
         <div>
             <h2 class="h2 test-center">Upload Las File</h2>
-            <p>Upload suceeded.</p>
+            <p>Upload succeeded.</p>
             <form action="upload" method="post" enctype="multipart/form-data" onSubmit="return verified()">
             <div>
                 <label for="fileToUpload">Log Ascii Standard file to upload</label>

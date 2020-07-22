@@ -30,7 +30,7 @@ function main()
     );
 
     // ROUTE ACTIONS
-    // Grab the URI and breaks in parts in case we have querystring stuff
+    // Grab the URI and break in parts in case we have querystring stuff
     $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
     /* DISPLAY HTTP DATA

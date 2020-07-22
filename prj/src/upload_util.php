@@ -9,6 +9,7 @@
  * @license   MIT
  */
 declare(strict_types = 1);
+session_start();
 
 
 // Debugging
@@ -89,6 +90,7 @@ function uu_get_file_loc(array $uu_data) : array
     $entry_date = (new DateTime())->format('Y-m-d-H-i-s');
     $path_parts = pathinfo($name);
     $name = $path_parts['filename'] . '-' . $entry_date . '.' . $path_parts['extension'];
+    $_SESSION['fileToUpload']['new_name'] = $name;
 
     $to_path = $uu_data['upload_dir'] . "/$name";
 

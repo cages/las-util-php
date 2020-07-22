@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div>
             <h2>Upload Las File</h2>
             <form action="upload" method="post" enctype="multipart/form-data" onSubmit="return verified()">
+            <?php status_msg_for_upload() ?>
             <div class="uploadform">
                 <label for="fileToUpload">Log Ascii Standard file to upload</label>
                 <div>

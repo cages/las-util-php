@@ -25,6 +25,11 @@ body {
   background: #eee;
 }
 
+header {
+  margin-top: .25em;
+  margin-bottom: .6em;
+}
+
 nav a {
   text-decoration: none;
 }
@@ -36,10 +41,6 @@ a, h1, h2, h3 {
 h1, h2, h3, h4 {
   margin: 0;
   text-align: center;
-}
-
-h1 {
-  border-bottom: 2px solid #eee;
 }
 
 h2 {
@@ -63,6 +64,8 @@ footer {
 }
 
 nav {
+  margin-top: 0;
+  margin-bottom: 0;
   border-bottom: 0.1em solid #eee;
 }
 
@@ -84,6 +87,7 @@ th {
 
 /* ul and li padding and display control menu display */
 ul {
+  margin: auto;
   padding-left: 0em;
   background-color: #eee;
 }
@@ -101,12 +105,13 @@ li {
   padding: 0.4em;
   border: 5px solid #ccc;
   background: white;
-  display: table;
+  display: block;
  }
 
 .display-data tr {
   background-color: #ccc;
 }
+
 /* table striping */
 .display-data tr:nth-of-type(odd) {
   background: #ddd;
@@ -130,8 +135,8 @@ li {
 
 .form {
   margin: 2.5em;
-  border: 1px solid #ccc;
   padding: 2.5em;
+  border: 1px solid #ccc;
 }
 
 .error {
@@ -140,8 +145,20 @@ li {
 }
 
 .uploadform {
-  text-align: center;
-  margin: 0em;
+  margin: auto;
+  padding: 2em;
+  padding-top: 1.5em;
   border: 1px solid #eee;
-  padding: 2.5em;
+  text-align: center;
+}
+
+.message {
+  min-height: 12.5px;
+  padding: .1em;
+  text-align: center;
+  background-color: #eee;
+}
+
+.message:after {
+  content: '\200b'; /* zero width space character */
 }
