@@ -97,6 +97,15 @@ li {
   padding: 0.3em 0.6em;
 }
 
+caption {
+  padding: 0.5em 0.4em 0.4em 0.4em;
+  border: 2px solid #ccc;
+  border-bottom: 0px solid #ccc;
+  color: white;
+  background-color: #377BA1;
+  font-size: 1.5em; /* Fallback if vw is not available */
+  font-size: 2.5vw;
+}
 
 .page {
   margin: auto;
@@ -118,7 +127,8 @@ li {
 }
 
 .doc-detail {
-  font-size: 0.3em;
+  font-size: 0.3em; /* Fallback if vw is not available */
+  font-size: 2vw;
 }
 
 @media (min-width: 570px) {
