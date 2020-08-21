@@ -23,7 +23,7 @@ LAS (Log Ascii Standard) web utilities in non-framework PHP
 The current goals of `las-util-php` are:
 - Parse LAS 2.0 meta-data and data sections
 - Explore software design issues related to non-framework PHP
-- Exlopre responsive web design issue with data related web tools
+- Explore responsive web design issue with data related web tools
 
 This utility is based on the LAS file format specification   
 maintained by the Canadian Well Logging Society at   
@@ -36,7 +36,8 @@ LAS-Util current functionality:
 -  Parse the sections and add them to the database
 - Display a list of uploaded files
 - Display details on a selected uploaded file
-- Provide api for listing uploaded LAS docs and details
+- Provide API for listing uploaded LAS docs and details
+- Responsive multi-device display
 
 
 LAS-Util has been tested with PHP 7.4.1 
@@ -77,7 +78,7 @@ Click 'upload'
 
   LAS-Util will:
   - upload the file to a local uploads directory
-  - parse the the file's information and save it to the database
+  - parse the file's information and save it to the database
 
 Select the 'Display LAS Files' menu item. The uploaded file will have the most recent date.
 
@@ -93,11 +94,6 @@ SQLite3
 
 https://github.com/dcslagel/las-util-php/milestones
 
-The current work-in-progress milestone is 0.1.1:
-
-- https://github.com/dcslagel/las-util-php/projects/3
-- Goal: 
-  - Focus on user interface improvements particularly related to the 'Display Files' menu section.
 
 [REST-API](#name)
 --------
@@ -124,7 +120,7 @@ curl http://127.0.0.1:7000/api/detail?las_file-2019-08-29-21-41-42.las
 [FEATURE-REQUEST](#name)
 ----------------
 
-To request and discuss a potiential feature create an issue at:
+To request and discuss a potential feature, create an issue at:
   - https://github.com/dcslagel/las-util-php/issues
 
 
@@ -141,4 +137,4 @@ To request and discuss a potiential feature create an issue at:
 [COPYRIGHT](#name)
 ------
 
-Copyright (c) 2019 DC Slagel
+Copyright (c) 2019, 2020 DC Slagel
