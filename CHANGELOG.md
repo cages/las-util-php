@@ -1,7 +1,25 @@
 # CHANGELOG
 
+## 0.1.1 - 2020-08-21
 
-## [0.1.0] - 2020-01-30
+- Improve user interface particularly related to the 'Display Files' menu section.
+
+### Added 
+
+- File Upload : Display upload result
+- Add Parsing and Display of Curve Information Section
+
+### Changed
+
+- Display-Files: Move 'Filename' field to be a section header
+- Improve display responsiveness for multiple devices
+
+### Fixed
+
+- Fix layout display issue: Copyright floats on to display data
+
+
+## 0.1.0 - 2020-01-30
 
 Initial tag of current beta content.
 

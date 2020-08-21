@@ -24,14 +24,18 @@
 <h2>LAS-Util Detail Display</h2>
 <?php
 if ($result->fetchArray()[0] != null) {
-    $fields = ['filename', 'section', 'name', 'value', 'note'];
+    $fields = ['section', 'name', 'value', 'note'];
 
 /* table top -----------------------------------*/
     $tabletop = <<<TABLETOP
 <table class="doc-detail">
 <thead>
 <tr>
-<th>FILENAME</th>
+
+TABLETOP;
+
+/* table section header -----------------------------------*/
+    $section_header = <<<SECTION_HEADER
 <th>SECTION</th>
 <th>NAME</th>
 <th>VALUE</th>
@@ -39,7 +43,7 @@ if ($result->fetchArray()[0] != null) {
 </tr>
 <tbody class="display-data">
 
-TABLETOP;
+SECTION_HEADER;
 
 /* table end -----------------------------------*/
     $tableend = <<<TABLEEND
@@ -51,6 +55,7 @@ TABLEEND;
     $version_table = '';
     $well_table = '';
     $curve_table = '';
+    $filename_header = '';
 
 
     $result->reset();
@@ -58,6 +63,13 @@ TABLEEND;
         $version_row = '';
         $well_row = '';
         $curve_row = '';
+        if ($filename_header === '') {
+            # $filename_header = '<tr><td colspan=4>';
+            $filename_header = '<caption>';
+            $filename_header = $filename_header .$row['filename'];
+            # $filename_header = $filename_header . '</td></tr>' . "\n";
+            $filename_header = $filename_header . '</caption>' . "\n";
+        }
 
         foreach ($fields as $field) {
             if (substr($row['section'], 0, 2) === '~V') {
@@ -80,6 +92,10 @@ TABLEEND;
         }
     }
     echo $tabletop;
+    if ($filename_header !== '') {
+        echo $filename_header;
+    }
+    echo $section_header;
     if ($version_table !== '') {
         echo $version_table;
     }
