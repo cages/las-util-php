@@ -18,7 +18,7 @@ function is_file_to_upload()
     }
 }
 
-function status_msg_for_upload() 
+function status_msg_for_upload()
 {
     $message_text = "&nbsp";
     $upload_error = $_FILES['fileToUpload'][error];
