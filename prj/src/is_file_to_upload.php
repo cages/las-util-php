@@ -21,8 +21,8 @@ function is_file_to_upload()
 function status_msg_for_upload()
 {
     $message_text = "&nbsp";
-    $upload_error = $_FILES['fileToUpload'][error];
-    $upload_name = $_FILES['fileToUpload'][name];
+    $upload_error = $_FILES['fileToUpload']['error'];
+    $upload_name = $_FILES['fileToUpload']['name'];
     $data_link_name = ($_SESSION['fileToUpload']['new_name']);
 
     if (empty($upload_error) && !empty($upload_name)) {
