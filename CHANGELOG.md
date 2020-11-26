@@ -4,7 +4,7 @@
 
 - Improve user interface particularly related to the 'Display Files' menu section.
 
-### Added 
+### Added
 
 - File Upload : Display upload result
 - Add Parsing and Display of Curve Information Section
@@ -25,7 +25,7 @@ Initial tag of current beta content.
 
 ### Added
 
-- Upload a LAS file that includes only the VERSION, WELL and CURVE header sections 
+- Upload a LAS file that includes only the VERSION, WELL and CURVE header sections
 - Parse the sections and add them to the database
 - Display a list of uploaded files
 - Display details on a selected uploaded file

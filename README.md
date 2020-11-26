@@ -1,6 +1,6 @@
 NAME
 ----
-LAS Util - Log Ascii Standard 2.0 web tools in Php 
+LAS Util - Log Ascii Standard 2.0 web tools in Php
 
 TABLE-OF-CONTENTS
 -----------------
@@ -16,7 +16,7 @@ TABLE-OF-CONTENTS
 [DESCRIPTION](#name)
 -----------
 
-Caution: This is beta software with limited functionality.
+Caution: Las-Util-Php is beta software with limited functionality.
 
 LAS (Log Ascii Standard) web utilities in non-framework PHP
 
@@ -33,14 +33,14 @@ https://www.cwls.org/products/#products-las
 LAS-Util current functionality:
 - Upload a LAS file that includes only the VERSION, WELL and CURVE header
   sections
--  Parse the sections and add them to the database
+- Parse the sections and add them to the database
 - Display a list of uploaded files
 - Display details on a selected uploaded file
 - Provide API for listing uploaded LAS docs and details
 - Responsive multi-device display
 
 
-LAS-Util has been tested with PHP 7.4.1 
+LAS-Util has been tested with PHP 7.4.1
 
 [SYNOPSIS](#name)
 --------
@@ -66,15 +66,15 @@ make run
 In a web browser, browse to:    
 http://localhost:7000/upload
 
-Select the LAS file prj/example_data/sample_next.las to upload.  It is
-verified to process correctly.
+Select the LAS file prj/example_data/sample_next.las to upload.
+Sample_next.las has been verified that it will process correctly.
 
 The sample_next.las currently is made up of the header sections: version, well
-and curve.  
+and curve.
 Additional header sections and the '~A' data section will be added
 in future iterations.
 
-Click 'upload'    
+Click 'upload'
 
   LAS-Util will:
   - upload the file to a local uploads directory
@@ -103,10 +103,10 @@ To retrieve uploaded LAS docs:
 curl http://127.0.0.1:7000/api/list
 ```
 
-To retrieve details of a specific LAS doc 
+To retrieve details of a specific LAS doc
 Syntax:    
 ```bash
-curl http://127.0.0.1:7000/api/detail?[filename]    
+curl http://127.0.0.1:7000/api/detail?[filename]
 ```
 
 Example:     
@@ -128,7 +128,7 @@ To request and discuss a potential feature, create an issue at:
 ----
 
 - Functionality is limited to reading some fields from a LAS file containing
-  only the v2.0 type sections.  
+  only the v2.0 type sections.
 
 - Report bugs by creating an issue at:
   - https://github.com/dcslagel/las-util-php/issues
