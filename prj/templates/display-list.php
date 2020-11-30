@@ -25,17 +25,17 @@
 <h2>LAS File List</h2>
 <?php
 if ($result->fetchArray()[0] != null) {
-    echo '<table class="doc-list">', "\n";
-    echo '<tbody>', "\n";
+    echo '<div class="doc-list">', "\n";
+    echo '<ul>', "\n";
     $result->reset();
     while ($row = $result->fetchArray(1)) {
         $filename = $row['filename'];
-        echo '<tr>', "\n";
-        echo '<td><a href="/detail?'.$filename.'">'.$filename.'</a></td>', "\n";
-        echo '</tr>', "\n";
+        echo '<li>', "\n";
+        echo '<a href="/detail?'.$filename.'">'.$filename.'</a>', "\n";
+        echo '</li>', "\n";
     }
-    echo '</tbody>', "\n";
-    echo '</table>', "\n";
+    echo '</ul>', "\n";
+    echo '</div>', "\n";
 }
 ?>
 </div>

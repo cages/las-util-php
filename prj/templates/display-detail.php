@@ -29,13 +29,13 @@ if ($result->fetchArray()[0] != null) {
 /* table top -----------------------------------*/
     $tabletop = <<<TABLETOP
 <table class="doc-detail">
-<thead>
-<tr>
 
 TABLETOP;
 
 /* table section header -----------------------------------*/
     $section_header = <<<SECTION_HEADER
+<thead>
+<tr>
 <th>SECTION</th>
 <th>NAME</th>
 <th>VALUE</th>
